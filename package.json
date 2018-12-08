@@ -1,0 +1,36 @@
+{
+  "name": "fireblock-ots",
+  "version": "2.0.0",
+  "description": "Create OTS for Fireblock.io",
+  "main": "index.js",
+  "scripts": {
+    "test": "export NODE_ENV=testing && mocha --recursive -R spec --exit",
+    "test:watch": "npm run test -- --watch",
+    "serve": "npx nodemon server.js",
+    "create": "node cmd/create.js",
+    "upgrade": "node cmd/upgrade.js",
+    "verify": "node cmd/verify.js"
+  },
+  "author": "Laurent Mallet <laurent.mallet@gmail.com>",
+  "license": "GPL3",
+  "dependencies": {
+    "redis": "^2.8.0",
+    "web3": "^1.0.0-beta.36",
+    "@fireblock.io/fireblocklibjs": "^1.9.41",
+    "node-schedule": "^1.3.1",
+    "javascript-opentimestamps": "^0.4.3",
+    "moment": "^2.22.2"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
+    "eslint": "^5.1.0",
+    "babel-eslint": "^8.2.5",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "nodemon": "^1.18.7"
+  }
+}
