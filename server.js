@@ -19,7 +19,6 @@
 // =================================================================
 const ethFcts = require('./app/controllers/eth.js')
 let schedule = require('node-schedule')
-const libFcts = require('@fireblock.io/fireblocklibjs')
 
 ethFcts.setup()
 

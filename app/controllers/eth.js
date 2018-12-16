@@ -30,7 +30,6 @@ if (process.env.NODE_ENV === 'testing') {
 } else {
   config = require('../../config')
 }
-let contract = require('../../contract')
 
 let conn = null
 let tempDirname = `tmp`
@@ -40,13 +39,8 @@ let errorDirname = 'errors'
 function setup () {
   console.log('Create a Web3 connexion')
   conn = new Web3(config.ethereum.ipc, net)
-  const stringStore = new conn.eth.Contract(contract.stringStoreABI, contract.stringStoreAddress)
-  const store = new conn.eth.Contract(contract.storeABI, contract.storeAddress)
-  const role = new conn.eth.Contract(contract.roleABI, contract.roleAddress)
-  const operation = new conn.eth.Contract(contract.operationABI, contract.operationAddress)
-  const fireblock = new conn.eth.Contract(contract.fireblockABI, contract.fireblockAddress)
   let client = redis.createClient(REDIS_PORT)
-  libFcts.setConnectors(conn, stringStore, store, role, operation, fireblock, client)
+  libFcts.setConnectors(conn, null, null, null, null, null, client)
   process.fireblock = {}
   process.fireblock.deltaGas = config.ethereum.deltaGas
 }
@@ -189,16 +183,3 @@ module.exports = {
   sleep,
   setup
 }
-
-// read ots file
-/*
-let fp = `${tempDirname}/${filename}`
-let content = fs.readFileSync(fp)
-const detached = OpenTimestamps.DetachedTimestampFile.deserialize(new OpenTimestamps.Context.StreamDeserialization(content))
-let changed = await OpenTimestamps.upgrade(detached)
-if (changed) {
-  let output = detached.serializeToBytes()
-  fs.writeFileSync(fp, output, 'utf8')
-}
-console.log('ELLIS', changed)
-*/

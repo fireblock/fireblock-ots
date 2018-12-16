@@ -2,7 +2,7 @@ module.exports = {
   smtpFrom: 'contact@fireblock.io',
   smtpTo: 'contact@fireblock.io',
   ethereum: {
-    ipc: '/home/ellis/.ethereum/geth.ipc',
+    ipc: '/home/user/.ethereum/geth.ipc',
     deltaGas: 500000,
   }
 }
