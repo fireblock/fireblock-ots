@@ -1,4 +1,4 @@
-# OpenTimeStamps
+# OpenTimeStamps your ethereum blockchain
 
 3 steps:
  1. export a block & create OTS file
